@@ -66,6 +66,8 @@ def login(usr, pwd):
         login(usr, pwd)
     except ValueError:
         login(usr, pwd)
+    except IndexError:
+        login(usr, pwd)
     # ActionChains(driver).key_down(Keys.ENTER).key_up(Keys.ENTER)
 
 
