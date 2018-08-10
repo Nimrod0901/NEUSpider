@@ -68,7 +68,7 @@ def login(usr, pwd):
         alert.accept()
     except TimeoutException:
         login(usr, pwd)
-    except ValueError:
+    except ValueError or IndexError:
         login(usr, pwd)
     # ActionChains(driver).key_down(Keys.ENTER).key_up(Keys.ENTER)
 
