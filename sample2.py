@@ -4,8 +4,6 @@
 
 import pytesseract as rec
 import time
-from conf import *
-import pymongo
 
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
@@ -20,13 +18,11 @@ from PIL import ImageOps
 from PIL import Image
 
 
-client = pymongo.MongoClient(MONGO_URL)
-db = client[MONGO_DB]
-
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
 driver = webdriver.Chrome(chrome_options=options)
 # You can set chrome_options empty to see how it works
+# 你可以把chrome_options设置为空来看是如何运行的
 wait = WebDriverWait(driver, 10)
 
 
@@ -101,7 +97,7 @@ def getInfo():
             tds = tr.find_all('td')
             info[tds[1].text] = tds[2].text.replace('\xa0', '')
     print(info)
-    write_to_file('result.txt', str(info)+'\n')
+    write_to_file('result.txt', str(info) + '\n')
 
 
 def write_to_file(filename, result):
