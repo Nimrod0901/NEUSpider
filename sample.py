@@ -68,7 +68,9 @@ def login(usr, pwd):
         alert.accept()
     except TimeoutException:
         login(usr, pwd)
-    except ValueError or IndexError:
+    except ValueError:
+        login(usr, pwd)
+    except IndexError:
         login(usr, pwd)
     # ActionChains(driver).key_down(Keys.ENTER).key_up(Keys.ENTER)
 
@@ -112,7 +114,7 @@ def save_to_mongo(result):
 
 
 def main():
-    for number in range(20160000, 20169999):
+    for number in range(20161936, 20169999):
         login(str(number), str(number))
     driver.close()
 
